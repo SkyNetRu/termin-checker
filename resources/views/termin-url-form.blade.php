@@ -26,7 +26,7 @@
 <main class="form-termin-url w-100 m-auto">
     <form action="{{route('update-termin-url')}}" method="post">
         <div class="form-floating">
-            <input type="text" value="{{ $termin_url->url }}" name="termin_url"
+            <input type="text" value="{{ $termin_url ? $termin_url->url : '' }}" name="termin_url"
                    class="form-control"
                    id="floatingInput"
                    placeholder="https://service.berlin.de/....." />
