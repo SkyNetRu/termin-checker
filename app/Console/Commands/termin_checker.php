@@ -40,7 +40,7 @@ class termin_checker extends Command
         $html = file_get_contents($url, false, $context);
         $needle = 'Leider sind aktuell keine Termine für ihre Auswahl verfügbar';
 
-        if (strripos($html, $needle) !== false) {
+        if (strripos($html, $needle) === false) {
             Mail::send('emails.termin-notify', ['termin_url' => $url], function($message)
             {
                 $message->to(config('termin.notify_email'), config('termin.notify_name'))
